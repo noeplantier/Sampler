@@ -1,70 +1,86 @@
 import React from 'react';
-import { Play, Download, Vibrate, Music, Headphones } from 'lucide-react';
+import { Play, Download } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import '../App.css';
+
+const stats = [
+  { label: 'Samples', value: '1,234' },
+  { label: 'Downloads', value: '567,890' },
+  { label: 'Producers', value: '123' },
+  { label: 'Genres', value: '45' },
+];
+
+const categories = [
+  { name: 'Drums', description: 'Hard-hitting drum samples', count: 120, duration: '30 mins', icon: Play },
+  { name: 'Bass', description: 'Deep bass sounds', count: 80, duration: '20 mins', icon: Play },
+  { name: 'Synths', description: 'Vintage synths', count: 100, duration: '25 mins', icon: Play },
+];
+
+const featuredSamples = [
+  { id: 1, name: 'Sample 1', duration: '3:45', category: 'Drums', bpm: 120, downloads: 150 },
+  { id: 2, name: 'Sample 2', duration: '4:20', category: 'Bass', bpm: 130, downloads: 200 },
+  { id: 3, name: 'Sample 3', duration: '2:30', category: 'Synths', bpm: 110, downloads: 250 },
+];
 
 const Home = () => {
   return (
-    <div>
-      {/* Hero Section with Background Image */}
-      <div 
-        className="relative h-[500px] flex items-center justify-center bg-cover bg-center"
-        style={{
-          backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url("https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&q=80")',
-        }}
-      >
-        <div className="text-center text-white z-10 px-4">
-          <h1 className="text-6xl font-bold mb-6 text-white bg-gradient-to-r from-gray-600 to-gray-200">
-            Discover Free Music Samples
+    <div className="bg-zinc-900 min-h-screen">
+      {/* Hero Section with Vinyl-inspired design */}
+      <div className="relative overflow-hidden py-20">
+        {/* Vinyl record animation background */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full border-[30px] border-zinc-800 animate-spin-slow opacity-20" />
+        
+        <div className="relative text-center z-10 px-4">
+          <h1 className="text-6xl font-bold mb-6 font-mono text-amber-500">
+            SAMPLER
           </h1>
-          <p className="text-2xl text-gray-200 mb-8 max-w-2xl mx-auto">
-            Access thousands of royalty-free samples from the world's best producers
+          <p className="text-2xl text-amber-200/80 mb-8 max-w-2xl mx-auto font-mono">
+            FREE SAMPLES FOR YOUR NEXT HIT
           </p>
           <div className="flex gap-4 justify-center">
             <Link 
               to="/explore"
-              className="bg-indigo-600 text-white px-8 py-3 rounded-lg text-lg font-medium hover:bg-indigo-700 transition-colors"
+              className="bg-amber-500 text-zinc-900 px-8 py-3 rounded-none text-lg font-mono hover:bg-amber-400 transition-colors border-2 border-amber-500 hover:border-amber-400"
             >
-              Start Exploring
+              START DIGGING
             </Link>
-            <button className="bg-white/10 backdrop-blur-md text-white px-8 py-3 rounded-lg text-lg font-medium hover:bg-white/20 transition-colors border border-white/30">
-              Learn More
+            <button className="border-2 border-amber-500 text-amber-500 px-8 py-3 rounded-none text-lg font-mono hover:border-amber-400 hover:text-amber-400 transition-colors">
+              LEARN MORE
             </button>
           </div>
         </div>
       </div>
 
-      {/* Stats Section */}
-      <div className="bg-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Stats Section with vintage meters */}
+      <div className="bg-zinc-800/50 py-12 border-y border-amber-500/20">
+        <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {stats.map((stat) => (
               <div key={stat.label} className="text-center">
-                <p className="text-4xl font-bold text-indigo-600">{stat.value}</p>
-                <p className="text-gray-600 mt-2">{stat.label}</p>
+                <p className="text-4xl font-bold font-mono text-amber-500">{stat.value}</p>
+                <p className="text-amber-200/60 mt-2 font-mono">{stat.label}</p>
               </div>
             ))}
           </div>
         </div>
       </div>
 
-      {/* Categories */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <h2 className="text-3xl font-bold text-gray-900 mb-8">Browse by Category</h2>
+      {/* Categories with vintage cards */}
+      <div className="max-w-7xl mx-auto px-4 py-16">
+        <h2 className="text-3xl font-bold font-mono text-amber-500 mb-8">CRATES</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {categories.map((category) => (
             <div
               key={category.name}
-              className="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-all duration-300 transform hover:-translate-y-1 cursor-pointer border border-gray-100"
+              className="bg-zinc-800/50 border border-amber-500/20 p-6 hover:border-amber-500/40 transition-all duration-300 group"
             >
               <div className="flex items-center space-x-4 mb-4">
-                <div className="p-3 bg-indigo-50 rounded-lg">
-                  <category.icon className="h-8 w-8 text-indigo-600" />
+                <div className="p-3 bg-amber-500/10 rounded-none group-hover:bg-amber-500/20 transition-colors">
+                  <category.icon className="h-8 w-8 text-amber-500" />
                 </div>
-                <h3 className="text-xl font-semibold">{category.name}</h3>
+                <h3 className="text-xl font-mono text-amber-200">{category.name}</h3>
               </div>
-              <p className="text-gray-600">{category.description}</p>
-              <div className="mt-4 flex items-center text-sm text-gray-500">
+              <p className="text-amber-200/60 font-mono">{category.description}</p>
+              <div className="mt-4 flex items-center text-sm text-amber-200/40 font-mono">
                 <span>{category.count} samples</span>
                 <span className="mx-2">•</span>
                 <span>{category.duration}</span>
@@ -74,52 +90,54 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Featured Samples */}
-      <div className="bg-gray-50 py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Featured Samples with VU meter style */}
+      <div className="bg-zinc-800/30 py-16 border-y border-amber-500/20">
+        <div className="max-w-7xl mx-auto px-4">
           <div className="flex justify-between items-center mb-8">
-            <h2 className="text-3xl font-bold text-gray-900">Featured Samples</h2>
-            <Link to="/explore" className="text-indigo-600 hover:text-indigo-700 font-medium">
-              View All →
+            <h2 className="text-3xl font-bold font-mono text-amber-500">FEATURED CUTS</h2>
+            <Link to="/explore" className="text-amber-500 hover:text-amber-400 font-mono">
+              VIEW ALL →
             </Link>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {featuredSamples.map((sample) => (
-              <div key={sample.id} className="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-all duration-300 transform hover:-translate-y-1">
+              <div key={sample.id} className="bg-zinc-800/50 border border-amber-500/20 overflow-hidden group hover:border-amber-500/40 transition-all duration-300">
                 <div className="p-6">
                   <div className="flex justify-between items-center mb-4">
-                    <h3 className="text-lg font-semibold">{sample.name}</h3>
-                    <span className="text-sm text-gray-500">{sample.duration}</span>
+                    <h3 className="text-lg font-mono text-amber-200">{sample.name}</h3>
+                    <span className="text-sm text-amber-200/60 font-mono">{sample.duration}</span>
                   </div>
-                  <div className="flex items-center space-x-2 text-sm text-gray-600 mb-4">
-                    <span className="px-2 py-1 bg-gray-100 rounded-full">{sample.category}</span>
+                  <div className="flex items-center space-x-2 text-sm text-amber-200/60 font-mono mb-4">
+                    <span className="px-2 py-1 bg-amber-500/10 rounded-none">{sample.category}</span>
                     <span>•</span>
                     <span>{sample.bpm} BPM</span>
                     <span>•</span>
-                    <span>{sample.downloads} downloads</span>
+                    <span>{sample.downloads} DLS</span>
                   </div>
-                  <div className="relative h-16 mb-4 bg-gray-100 rounded-lg">
-                    {/* Vibrate visualization placeholder */}
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <Vibrate className="h-8 w-8 text-gray-400" />
+                  {/* Vintage VU Meter Animation */}
+                  <div className="relative h-16 mb-4 bg-zinc-900/50 border border-amber-500/20">
+                    <div className="absolute inset-0 flex items-center justify-center space-x-1">
+                      {[...Array(20)].map((_, i) => (
+                        <div
+                          key={i}
+                          className="w-1 bg-amber-500/60 rounded-none"
+                          style={{
+                            height: `${Math.random() * 100}%`,
+                            animation: `pulse ${Math.random() * 0.5 + 0.5}s infinite`
+                          }}
+                        />
+                      ))}
                     </div>
                   </div>
                   <div className="flex justify-between items-center">
-                    <button 
-                      onClick={() => new Audio(sample.previewUrl).play()}
-                      className="flex items-center space-x-2 text-indigo-600 hover:text-indigo-700"
-                    >
+                    <button className="flex items-center space-x-2 text-amber-500 hover:text-amber-400 font-mono">
                       <Play className="h-5 w-5" />
-                      <span>Preview</span>
+                      <span>PLAY</span>
                     </button>
-                    <a 
-                      href={sample.downloadUrl}
-                      className="flex items-center space-x-2 text-gray-600 hover:text-gray-700"
-                      download
-                    >
+                    <button className="flex items-center space-x-2 text-amber-500 hover:text-amber-400 font-mono">
                       <Download className="h-5 w-5" />
-                      <span>Download</span>
-                    </a>
+                      <span>DL</span>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -128,114 +146,20 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Call to Action */}
-      <div className="bg-indigo-600 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold mb-4">Ready to Create?</h2>
-          <p className="text-xl text-indigo-100 mb-8 max-w-2xl mx-auto">
-            Join thousands of producers using Sampler to find their next inspiration
+      {/* Call to Action with retro styling */}
+      <div className="bg-amber-500/10 border-y border-amber-500/20 py-16">
+        <div className="max-w-7xl mx-auto px-4 text-center">
+          <h2 className="text-3xl font-bold font-mono text-amber-500 mb-4">READY TO DROP THE BEAT?</h2>
+          <p className="text-xl text-amber-200/80 mb-8 max-w-2xl mx-auto font-mono">
+            JOIN THE CREW OF PRODUCERS USING SAMPLER
           </p>
-          <button className="bg-white text-indigo-600 px-8 py-3 rounded-lg text-lg font-medium hover:bg-indigo-50 transition-colors">
-            Get Started Now
+          <button className="bg-amber-500 text-zinc-900 px-8 py-3 rounded-none text-lg font-mono hover:bg-amber-400 transition-colors border-2 border-amber-500 hover:border-amber-400">
+            START CREATING NOW
           </button>
         </div>
       </div>
     </div>
   );
 };
-
-const stats = [
-  { value: '10,000+', label: 'Free Samples' },
-  { value: '50+', label: 'Categories' },
-  { value: '100k+', label: 'Downloads' },
-  { value: '5,000+', label: 'Active Users' }
-];
-
-const categories = [
-  {
-    name: 'Drums & Percussion',
-    icon: Vibrate,
-    description: 'Find the perfect beat with our collection of drum loops and one-shots.',
-    count: '2,500',
-    duration: '10+ hours'
-  },
-  {
-    name: 'Melodic Loops',
-    icon: Music,
-    description: 'Inspiring melodic loops from various instruments and genres.',
-    count: '1,800',
-    duration: '8+ hours'
-  },
-  {
-    name: 'Bass Lines',
-    icon: Headphones,
-    description: 'Deep and groovy bass lines to anchor your tracks.',
-    count: '1,200',
-    duration: '5+ hours'
-  }
-];
-
-const featuredSamples = [
-  {
-    id: 1,
-    name: 'Deep House Drums',
-    duration: '0:32',
-    category: 'Drums',
-    bpm: 124,
-    downloads: '2.3k',
-    previewUrl: 'https://cdn.pixabay.com/download/audio/2022/02/22/audio_d1718ab41b.mp3',
-    downloadUrl: 'https://cdn.pixabay.com/download/audio/2022/02/22/audio_d1718ab41b.mp3'
-  },
-  {
-    id: 2,
-    name: 'Ambient Piano Loop',
-    duration: '0:45',
-    category: 'Melodic',
-    bpm: 90,
-    downloads: '1.8k',
-    previewUrl: 'https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8f3c002.mp3',
-    downloadUrl: 'https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8f3c002.mp3'
-  },
-  {
-    id: 3,
-    name: 'Tech House Bass',
-    duration: '0:28',
-    category: 'Bass',
-    bpm: 126,
-    downloads: '3.1k',
-    previewUrl: 'https://cdn.pixabay.com/download/audio/2022/02/07/audio_d0c6434e49.mp3',
-    downloadUrl: 'https://cdn.pixabay.com/download/audio/2022/02/07/audio_d0c6434e49.mp3'
-  },
-  {
-    id: 4,
-    name: 'Chill Lofi Beat',
-    duration: '1:15',
-    category: 'Drums',
-    bpm: 85,
-    downloads: '4.2k',
-    previewUrl: 'https://cdn.pixabay.com/download/audio/2023/01/31/audio_75d7c93432.mp3',
-    downloadUrl: 'https://cdn.pixabay.com/download/audio/2023/01/31/audio_75d7c93432.mp3'
-  },
-  {
-    id: 5,
-    name: 'Synthwave Melody',
-    duration: '0:52',
-    category: 'Melodic',
-    bpm: 100,
-    downloads: '2.7k',
-    previewUrl: 'https://cdn.pixabay.com/download/audio/2022/11/22/audio_febc508520.mp3',
-    downloadUrl: 'https://cdn.pixabay.com/download/audio/2022/11/22/audio_febc508520.mp3'
-  },
-  {
-    id: 6,
-    name: 'Future Bass Chords',
-    duration: '0:38',
-    category: 'Melodic',
-    bpm: 150,
-    downloads: '1.9k',
-    previewUrl: 'https://cdn.pixabay.com/download/audio/2022/10/25/audio_127d4f91c9.mp3',
-    downloadUrl: 'https://cdn.pixabay.com/download/audio/2022/10/25/audio_127d4f91c9.mp3'
-  }
-];
 
 export default Home;

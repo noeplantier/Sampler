@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { Filter, Search, SlidersHorizontal, Play, Download } from 'lucide-react';
+import { Filter, Search, SlidersHorizontal, Play, Download, ExpandIcon } from 'lucide-react';
 import VinylPlayer from '../components/VinylPlayer.tsx';
 import RetroSampleBrowser from '../components/RetroSampleBrowser.tsx';
+import ExploreNavbar from '../components/ExploreNavbar.tsx';
 
 const Explore = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -21,80 +22,7 @@ const Explore = () => {
   });
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      {/* Search and Filter Header */}
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
-        <div className="relative flex-1 max-w-lg">
-          <input
-            type="text"
-            placeholder="Search samples..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-10 pr-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
-          />
-          <Search className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
-        </div>
-        <button className="flex items-center space-x-2 text-gray-600 hover:text-gray-900">
-          <SlidersHorizontal className="h-5 w-5" />
-          <span>Advanced Filters</span>
-        </button>
-      </div>
-
-      {/* Filters */}
-      <div className="bg-white rounded-lg shadow-sm p-6 mb-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Category
-            </label>
-            <select
-              value={selectedCategory}
-              onChange={(e) => setSelectedCategory(e.target.value)}
-              className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
-            >
-              <option value="all">All Categories</option>
-              <option value="drums">Drums & Percussion</option>
-              <option value="melodic">Melodic Loops</option>
-              <option value="bass">Bass Lines</option>
-              <option value="fx">FX & Atmospheres</option>
-            </select>
-          </div>
-          
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              BPM Range
-            </label>
-            <select
-              value={selectedBPM}
-              onChange={(e) => setSelectedBPM(e.target.value)}
-              className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
-            >
-              <option value="all">All BPM</option>
-              <option value="70-90">70-90</option>
-              <option value="90-110">90-110</option>
-              <option value="110-130">110-130</option>
-              <option value="130-150">130-150</option>
-              <option value="150">150+</option>
-            </select>
-          </div>
-
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Key
-            </label>
-            <select
-              value={selectedKey}
-              onChange={(e) => setSelectedKey(e.target.value)}
-              className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
-            >
-              <option value="all">All Keys</option>
-              {['C', 'Cm', 'D', 'Dm', 'E', 'Em', 'F', 'Fm', 'G', 'Gm', 'A', 'Am', 'B', 'Bm'].map(key => (
-                <option key={key} value={key}>{key}</option>
-              ))}
-            </select>
-          </div>
-        </div>
-      </div>
+  <div>
 
       <div className="mb-8">
         <VinylPlayer sample={samples[0]} />
