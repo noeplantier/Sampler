@@ -13,8 +13,8 @@
 
 /* Vintage Typography */
 @font-face {
-  font-family: 'VintageFont';
-  src: url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap');
+  font-family: 'Beth Ellen'; 
+  src: url('https://fonts.google.com/share?selection.family=Beth+Ellen');
 }
 
 /* Vinyl Player Styles */
@@ -80,6 +80,7 @@
   justify-content: center;
   gap: 1rem;
   margin-top: 2rem;
+  font-size: 10rem;
 }
 
 .vinyl-btn {
@@ -273,3 +274,4 @@
   color: var(--vintage-brown);
   transform: translateY(-2px);
 }
+

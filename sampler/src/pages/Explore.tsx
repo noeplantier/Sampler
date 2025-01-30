@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
-import { Filter, Search, SlidersHorizontal, Play, Download, ExpandIcon } from 'lucide-react';
+import { Filter, Play, Download } from 'lucide-react';
 import VinylPlayer from '../components/VinylPlayer.tsx';
 import RetroSampleBrowser from '../components/RetroSampleBrowser.tsx';
-import ExploreNavbar from '../components/ExploreNavbar.tsx';
 
 const Explore = () => {
-  const [selectedCategory, setSelectedCategory] = useState('all');
-  const [selectedBPM, setSelectedBPM] = useState('all');
-  const [selectedKey, setSelectedKey] = useState('all');
-  const [searchQuery, setSearchQuery] = useState('');
+  const [selectedCategory, ] = useState('all');
+  const [selectedBPM, ] = useState('all');
+  const [selectedKey, ] = useState('all');
+  const [searchQuery, ] = useState('');
 
   const filteredSamples = samples.filter(sample => {
     if (selectedCategory !== 'all' && sample.category.toLowerCase() !== selectedCategory) return false;

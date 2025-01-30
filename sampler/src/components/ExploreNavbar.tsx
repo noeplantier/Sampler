@@ -3,7 +3,7 @@ import React from "react";
 
 const ExploreNavbar = ({ searchQuery, setSearchQuery }) => {
   return (
-    <nav className="w-full bg-[#f5e1da] shadow-md py-4 px-6 flex justify-between items-center border-b border-[#d1a799]">
+    <nav className="navbar w-full bg-[#f5e1da] shadow-md py-4 px-6 flex justify-between items-center border-b border-[#d1a799]">
       {/* Logo */}
       <div className="text-[#6b4226] text-xl font-bold tracking-wider">
         Vintage Explore
