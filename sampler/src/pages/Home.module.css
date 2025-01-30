@@ -1,0 +1,214 @@
+/* Home.module.css */
+
+/* Base styles */
+.vintageContainer {
+    background-color: #2c1810; /* Dark brown */
+    color: beige;
+    min-height: 100vh;
+    font-family: 'Courier New', Courier, monospace; /* Vintage font */
+  }
+  
+  /* Hero Section */
+  .heroSection {
+    position: relative;
+    overflow: hidden;
+    padding: 80px 0;
+    text-align: center;
+  }
+  
+  .vinylBackground {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    height: 800px;
+    border: 30px solid rgba(44, 24, 16, 0.8); /* Dark brown with opacity */
+    border-radius: 50%;
+    animation: spin 20s linear infinite;
+    opacity: 0.2;
+  }
+  
+  @keyframes spin {
+    from {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to {
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
+  }
+  
+  .heroTitle {
+    font-size: 4rem;
+    font-weight: bold;
+    color: beige;
+    margin-bottom: 1.5rem;
+  }
+  
+  .heroSubtitle {
+    font-size: 1.5rem;
+    color: rgba(245, 245, 220, 0.8); /* Beige with opacity */
+    margin-bottom: 2rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .heroButton {
+    background-color: beige;
+    color: #2c1810;
+    padding: 12px 24px;
+    border: 2px solid beige;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+  }
+  
+  .heroButton:hover {
+    background-color: rgba(245, 245, 220, 0.9); /* Slightly transparent beige */
+    border-color: rgba(245, 245, 220, 0.9);
+  }
+  
+  /* Stats Section */
+  .statsSection {
+    background-color: rgba(44, 24, 16, 0.5); /* Dark brown with opacity */
+    padding: 3rem 0;
+    border-top: 1px solid rgba(245, 245, 220, 0.2); /* Beige with opacity */
+    border-bottom: 1px solid rgba(245, 245, 220, 0.2);
+  }
+  
+  .statValue {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: beige;
+  }
+  
+  .statLabel {
+    color: rgba(245, 245, 220, 0.6); /* Beige with opacity */
+    margin-top: 0.5rem;
+  }
+  
+  /* Categories Section */
+  .categoriesSection {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+  
+  .categoryCard {
+    background-color: rgba(44, 24, 16, 0.5); /* Dark brown with opacity */
+    border: 1px solid rgba(245, 245, 220, 0.2); /* Beige with opacity */
+    padding: 1.5rem;
+    transition: border-color 0.3s;
+  }
+  
+  .categoryCard:hover {
+    border-color: rgba(245, 245, 220, 0.4); /* Brighter beige on hover */
+  }
+  
+  .categoryIcon {
+    background-color: rgba(245, 245, 220, 0.1); /* Beige with opacity */
+    padding: 0.75rem;
+    border-radius: 0;
+    transition: background-color 0.3s;
+  }
+  
+  .categoryIcon:hover {
+    background-color: rgba(245, 245, 220, 0.2); /* Brighter beige on hover */
+  }
+  
+  .categoryName {
+    font-size: 1.5rem;
+    color: beige;
+  }
+  
+  .categoryDescription {
+    color: rgba(245, 245, 220, 0.6); /* Beige with opacity */
+  }
+  
+  /* Featured Samples Section */
+  .featuredSamplesSection {
+    background-color: rgba(44, 24, 16, 0.3); /* Dark brown with opacity */
+    padding: 2rem 0;
+    border-top: 1px solid rgba(245, 245, 220, 0.2); /* Beige with opacity */
+    border-bottom: 1px solid rgba(245, 245, 220, 0.2);
+  }
+  
+  .sampleCard {
+    background-color: rgba(44, 24, 16, 0.5); /* Dark brown with opacity */
+    border: 1px solid rgba(245, 245, 220, 0.2); /* Beige with opacity */
+    padding: 1.5rem;
+    transition: border-color 0.3s;
+  }
+  
+  .sampleCard:hover {
+    border-color: rgba(245, 245, 220, 0.4); /* Brighter beige on hover */
+  }
+  
+  .sampleName {
+    font-size: 1.25rem;
+    color: beige;
+  }
+  
+  .sampleDuration {
+    color: rgba(245, 245, 220, 0.6); /* Beige with opacity */
+  }
+  
+  .vuMeter {
+    height: 4rem;
+    background-color: rgba(44, 24, 16, 0.8); /* Dark brown with opacity */
+    border: 1px solid rgba(245, 245, 220, 0.2); /* Beige with opacity */
+    position: relative;
+  }
+  
+  .vuBar {
+    width: 0.25rem;
+    background-color: rgba(245, 245, 220, 0.6); /* Beige with opacity */
+    border-radius: 0;
+    animation: pulse 1s infinite;
+  }
+  
+  @keyframes pulse {
+    0%, 100% {
+      height: 20%;
+    }
+    50% {
+      height: 80%;
+    }
+  }
+  
+  /* Call to Action Section */
+  .ctaSection {
+    background-color: rgba(245, 245, 220, 0.1); /* Beige with opacity */
+    padding: 2rem 0;
+    border-top: 1px solid rgba(245, 245, 220, 0.2); /* Beige with opacity */
+    border-bottom: 1px solid rgba(245, 245, 220, 0.2);
+  }
+  
+  .ctaTitle {
+    font-size: 2rem;
+    font-weight: bold;
+    color: beige;
+    margin-bottom: 1rem;
+  }
+  
+  .ctaSubtitle {
+    font-size: 1.25rem;
+    color: rgba(245, 245, 220, 0.8); /* Beige with opacity */
+    margin-bottom: 2rem;
+  }
+  
+  .ctaButton {
+    background-color: beige;
+    color: #2c1810;
+    padding: 12px 24px;
+    border: 2px solid beige;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+  }
+  
+  .ctaButton:hover {
+    background-color: rgba(245, 245, 220, 0.9); /* Slightly transparent beige */
+    border-color: rgba(245, 245, 220, 0.9);
+  }
