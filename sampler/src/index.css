@@ -1,13 +1,275 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Vintage Color Palette */
+:root {
+  --vintage-cream: #f5e6d3;
+  --vintage-brown: #2c1810;
+  --vintage-red: #d2463b;
+  --vintage-gold: #b6a268;
+  --vintage-navy: #274c77;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Vintage Typography */
+@font-face {
+  font-family: 'VintageFont';
+  src: url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap');
+}
+
+/* Vinyl Player Styles */
+.vinyl-player {
+  background: var(--vintage-brown);
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  position: relative;
+  margin: 2rem;
+}
+
+.vinyl-disc {
+  width: 300px;
+  height: 300px;
+  background: linear-gradient(45deg, #000000, #333333);
+  border-radius: 50%;
+  position: relative;
+  margin: 0 auto;
+  transition: transform 0.5s ease;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.vinyl-disc::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80%;
+  height: 80%;
+  transform: translate(-50%, -50%);
+  background: repeating-radial-gradient(
+    circle at center,
+    #000000 0,
+    #000000 1px,
+    transparent 1px,
+    transparent 4px
+  );
+  border-radius: 50%;
+}
+
+.vinyl-label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  height: 100px;
+  background: var(--vintage-cream);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: 'VintageFont', serif;
+  color: var(--vintage-brown);
+  font-size: 0.8rem;
+  padding: 1rem;
+}
+
+.vinyl-controls {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.vinyl-btn {
+  background: var(--vintage-gold);
+  border: none;
+  color: var(--vintage-brown);
+  padding: 0.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.vinyl-btn:hover {
+  transform: scale(1.1);
+  background: var(--vintage-red);
+  color: var(--vintage-cream);
+}
+
+.vinyl-volume {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--vintage-cream);
+}
+
+/* Retro Sample Browser Styles */
+.retro-browser {
+  background: var(--vintage-cream);
+  padding: 2rem;
+  border: 8px solid var(--vintage-brown);
+  border-radius: 0.5rem;
+  margin: 2rem;
+}
+
+.retro-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid var(--vintage-brown);
+  padding-bottom: 1rem;
+}
+
+.retro-title {
+  font-family: 'VintageFont', serif;
+  color: var(--vintage-brown);
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.retro-counter {
+  background: var(--vintage-navy);
+  color: var(--vintage-cream);
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  font-family: monospace;
+}
+
+.retro-samples-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.retro-sample-card {
+  background: var(--vintage-brown);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  color: var(--vintage-cream);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.retro-sample-card:hover {
+  border-color: var(--vintage-gold);
+  transform: translateY(-2px);
+}
+
+.retro-sample-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.retro-sample-name {
+  flex: 1;
+  font-weight: bold;
+}
+
+.retro-sample-duration {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: var(--vintage-gold);
+}
+
+.retro-btn {
+  background: var(--vintage-red);
+  color: var(--vintage-cream);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.retro-btn:hover {
+  background: var(--vintage-gold);
+  transform: scale(1.05);
+}
+
+/* Vintage Slider Styles */
+.vintage-slider {
+  -webkit-appearance: none;
+  width: 100px;
+  height: 4px;
+  background: var(--vintage-cream);
+  border-radius: 2px;
+  outline: none;
+}
+
+.vintage-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  background: var(--vintage-gold);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.vintage-slider::-webkit-slider-thumb:hover {
+  background: var(--vintage-red);
+  transform: scale(1.2);
+}
+
+/* Custom Animations */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.spin {
+  animation: spin 2s linear infinite;
+}
+
+/* Vintage Button Styles */
+.btn-vintage {
+  background: var(--vintage-brown);
+  color: var(--vintage-cream);
+  border: 2px solid var(--vintage-gold);
+  padding: 0.75rem 1.5rem;
+  font-family: 'VintageFont', serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-vintage::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.btn-vintage:hover::before {
+  left: 100%;
+}
+
+.btn-vintage:hover {
+  background: var(--vintage-gold);
+  color: var(--vintage-brown);
+  transform: translateY(-2px);
 }
